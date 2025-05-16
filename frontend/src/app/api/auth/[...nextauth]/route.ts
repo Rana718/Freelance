@@ -2,7 +2,7 @@ import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import axios from "axios";
 
-const api_key = process.env.NEXT_PUBLIC_API
+const api_key = process.env.NEXT_PUBLIC_API;
 
 const handler = NextAuth({
     providers: [
@@ -28,19 +28,23 @@ const handler = NextAuth({
                         formData.toString(),
                         {
                             headers: {
-                                'Content-Type': 'application/x-www-form-urlencoded',
+                                "Content-Type":
+                                    "application/x-www-form-urlencoded",
                             },
-                        }
+                        },
                     );
 
                     const authData = response.data;
 
                     if (response && authData.access_token) {
-                        const userResponse = await fetch(`${api_key}/api/auth/me`, {
-                            headers: {
-                                "Authorization": `Bearer ${authData.access_token}`,
+                        const userResponse = await fetch(
+                            `${api_key}/api/auth/me`,
+                            {
+                                headers: {
+                                    Authorization: `Bearer ${authData.access_token}`,
+                                },
                             },
-                        });
+                        );
 
                         const userData = await userResponse.json();
 
@@ -59,8 +63,7 @@ const handler = NextAuth({
                     console.error("Auth error:", error);
                     return null;
                 }
-            }
-
+            },
         }),
     ],
     pages: {
@@ -78,7 +81,8 @@ const handler = NextAuth({
 
                 console.log("JWT updated with new token", {
                     email: user.email,
-                    tokenPrefix: (user.accessToken as string).substring(0, 10) + '...'
+                    tokenPrefix:
+                        (user.accessToken as string).substring(0, 10) + "...",
                 });
             }
 

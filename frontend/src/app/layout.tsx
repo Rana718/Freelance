@@ -6,40 +6,37 @@ import ThemeProvider from "@/components/ThemeProvider";
 import Navbar from "@/components/Navbar";
 
 const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+    variable: "--font-geist-sans",
+    subsets: ["latin"],
 });
 
 const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+    variable: "--font-geist-mono",
+    subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
-  title: "Flancer - Freelance Project Marketplace",
-  description: "Find freelance projects or post your own",
+    title: "Flancer - Freelance Project Marketplace",
+    description: "Find freelance projects or post your own",
 };
 
 export default function RootLayout({
-  children,
+    children,
 }: Readonly<{
-  children: React.ReactNode;
+    children: React.ReactNode;
 }>) {
-  return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <AuthProvider>
-          <ThemeProvider>
-              <Navbar />
-              <main className="min-h-screen pt-16">
-                {children}
-              </main>
-            
-          </ThemeProvider>
-        </AuthProvider>
-      </body>
-    </html>
-  );
+    return (
+        <html lang="en">
+            <body
+                className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+            >
+                <AuthProvider>
+                    <ThemeProvider>
+                        <Navbar />
+                        <main className="min-h-screen pt-16">{children}</main>
+                    </ThemeProvider>
+                </AuthProvider>
+            </body>
+        </html>
+    );
 }
