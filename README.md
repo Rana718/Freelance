@@ -55,8 +55,10 @@ pip install -r requirements.txt
 
 1. Create a `.env` file in the backend directory with necessary environment variables:
 ```env
-MONGODB_URL=your_mongodb_url
-JWT_SECRET=your_jwt_secret
+MONGO_URI=db_url
+JWT_SECRET=your_super_secret_key_change_in_production
+JWT_ALGORITHM=HS256
+JWT_EXPIRATION=600
 ```
 
 2. Start the backend server:
@@ -84,7 +86,10 @@ bun install
 
 3. Create a `.env.local` file with necessary environment variables:
 ```env
-NEXT_PUBLIC_API_URL=http://localhost:8000
+NEXTAUTH_URL=http://localhost:3000
+NEXTAUTH_SECRET=your-super-secure-nextauth-secret-key-change-in-production
+UPLOADTHING_TOKEN=uploadthing token
+NEXT_PUBLIC_API=http://localhost:8000
 ```
 
 4. Run the development server:
