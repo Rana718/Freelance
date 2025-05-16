@@ -1,0 +1,21 @@
+[project]
+name = "backend"
+version = "0.1.0"
+description = "Flancer - A Freelance Project Marketplace API"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.115.12",
+    "python-dotenv>=1.1.0",
+    "uvicorn>=0.34.2",
+    "python-jose>=3.3.0",
+    "passlib>=1.7.4",
+    "bcrypt>=4.1.2",
+    "pydantic>=2.7.4",
+    "pydantic-extra-types>=2.5.0",
+    "email-validator>=2.1.1",
+    "python-multipart>=0.0.20",
+    "pymongo>=4.6.2",
+    "motor>=3.3.1",
+    "beanie>=1.25.0",
+]
